@@ -8,7 +8,8 @@ module.exports = {
       colors: {
         'violet-medium' : '#A7A3FF',
         'violet-dark' : '#4D47C3',
-        'violet-light': '#F0EFFF'
+        'violet-light': '#F0EFFF',
+        'gray-medium': '#526581'
       },
       dropShadow: {
         'dark': '0 4px 61px rgba(77, 71, 195, 0.4)',
@@ -16,6 +17,7 @@ module.exports = {
     },
     fontFamily: {
       'poppins' : 'Poppins',
+      'inter': "Inter"
     },
   },
 
