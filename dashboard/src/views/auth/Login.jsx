@@ -71,7 +71,7 @@ const Login = () => {
       <div className='w-1/2'>
         <h1 className='font-semibold text-3xl font-poppins mb-8 ml-12 mt-16'>
           Welcome back!
-        </h1>
+        </h1>  
         <img className='w-full' src={illustration} alt='resgister-illu' />
       </div>
       <div className=" w-1/2 flex justify-center items-center">
