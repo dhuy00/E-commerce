@@ -17,7 +17,7 @@ const Sidebar = ({showSidebar, setShowSidebar}) => {
   }, [])
 
 
-  const navStyle = 'items-center flex flex-row gap-2 font-medium font-inter px-2 h-10 hover:cursor-pointer hover:text-white rounded-lg hover:bg-[#007AFF] duration-[120ms] transition-all'
+  const navStyle = 'items-center flex flex-row gap-2 font-medium font-inter px-2 h-10 hover:cursor-pointer hover:text-white rounded-lg hover:bg-[#007AFF] duration-[60ms] transition-all'
   return (
     <div className={`fixed h-screen border-solid border-r-[2px] drop-shadow-sm border-[#d7dde6] w-56 ${!showSidebar ? 'w-[67px]' : ''} top-0 flex flex-col font-poppins text-gray-medium px-4 gap-4 transition-all`}>
       <div className='flex flex-row justify-between items-center mt-5 font-semibold text-lg mb-4'>
@@ -34,7 +34,7 @@ const Sidebar = ({showSidebar, setShowSidebar}) => {
       <ul className='flex flex-col gap-4'>
         {
           allNav.map((nav, i) =>
-            <li key={i} className={`${pathname === nav.path ? 'bg-[#007AFF] text-white rounded-lg transition duration-1000' : 'duration-1000 transition'}`}>
+            <li key={i} className={`${pathname === nav.path ? 'bg-[#007AFF] text-white rounded-lg transition duration-500' : 'duration-500 transition'}`}>
               <Link to={nav.path} className={navStyle} >
                 <span>{nav.icon}</span>
                 <span className={`${!showSidebar ? 'hidden' : ''}`}>{nav.title}</span>

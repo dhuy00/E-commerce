@@ -24,10 +24,10 @@ export const allNav = [
   },
   {
     id: 3,
-    title: 'Category',
+    title: 'Categories',
     icon: <BiSolidCategory />,
     role: 'admin',
-    path: '/admin/dashboard/category'
+    path: '/admin/dashboard/categories'
   },
   {
     id: 4,
