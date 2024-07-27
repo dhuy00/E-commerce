@@ -1,11 +1,12 @@
 import { IoHome } from "react-icons/io5";
 import { BiSolidCategory } from "react-icons/bi";
 import { BiReceipt } from "react-icons/bi";
-import { MdOutlinePayment } from "react-icons/md";
 import { HiOutlineUserGroup } from "react-icons/hi2";
 import { IoCloudOfflineSharp } from "react-icons/io5";
 import { BsChatText } from "react-icons/bs";
 import { IoIosGitPullRequest } from "react-icons/io";
+import { MdOutlineAddShoppingCart } from "react-icons/md";
+import { FaBox } from "react-icons/fa";
 
 export const allNav = [
   {
@@ -38,10 +39,10 @@ export const allNav = [
   },
   {
     id: 5,
-    title: 'Payment Requests',
-    icon: <MdOutlinePayment />,
+    title: 'Products',
+    icon: <FaBox />,
     role: 'admin',
-    path: '/admin/dashboard/payment-requests'
+    path: '/admin/dashboard/products'
   },
   {
     id: 6,
@@ -52,10 +53,10 @@ export const allNav = [
   },
   {
     id: 7,
-    title: 'Seller Requests',
-    icon: <IoIosGitPullRequest />,
+    title: 'Add Product',
+    icon: <MdOutlineAddShoppingCart />,
     role: 'admin',
-    path: '/admin/dashboard/seller-requests'
+    path: '/admin/dashboard/add-product'
   },
   {
     id: 8,

@@ -9,6 +9,7 @@ module.exports = {
         'violet-medium' : '#A7A3FF',
         'violet-dark' : '#4D47C3',
         'violet-light': '#F0EFFF',
+        'gray-light': '#7D7D7D',
         'gray-medium': '#526581',
         'blue-medium': "#1E6EE5",
         'blue-dark': "#1C5387",
