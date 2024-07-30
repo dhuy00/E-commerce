@@ -4,21 +4,55 @@ import userAvatar from './../../assets/avt_user.png'
 import { IoIosMore } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
 import { IoIosInformationCircle } from "react-icons/io";
+import { IoSendSharp } from "react-icons/io5";
+import { useState } from 'react';
 
-const ChatBox = () => {
+
+const Message = ({userType}) => {
   return (
-    <div className='flex flex-row items-center w-full border-2 border-blue-medium px-2 py-2 rounded-md justify-between'>
+    <div className={`flex flex-row gap-2 ${userType === 'sender' ? 'self-end' : ''}`}>
+      <img className={`w-8 h-8 rounded-full  ${userType === 'sender' ? 'hidden' : ''}`} src={userAvatar} alt='avt-user'/>
+      <div className={`flex flex-col gap-2`}>
+        <p className={`border-blue-medium border-2 w-fit font-medium font-inter items-center rounded-lg px-3  py-1  text-sm ${userType === 'sender' ? 'bg-blue-medium text-white self-end' : 'text-blue-medium'} `}>
+          Hi, I need some help
+        </p>
+        <p className={`${userType === 'sender' ? 'bg-blue-medium text-white  self-end' : 'text-blue-medium'} border-blue-medium border-2 w-fit font-medium font-inter items-center rounded-lg px-3  py-1  text-sm`}>
+          There are many variations of passages 
+        </p>
+        <span className={`text-gray-medium text-[10px] font-medium  ${userType === 'sender' ? 'self-end' : ''}`}>
+          11:00 AM
+        </span>
+      </div>
+      <img className={`w-8 h-8 rounded-full  ${userType === 'sender' ? '' : 'hidden'}`} src={userAvatar}   alt='avt-user'/>
+    </div>
+  )
+}
+
+const ChatBox = ({index, selected, setSelected}) => {
+
+  const handleSelected = () => {
+    setSelected(index)
+  }
+
+  return (
+    <div onClick={handleSelected} className={`transition-all cursor-pointer flex flex-row items-center w-full border-2 border-blue-medium px-2 py-2 rounded-md justify-between ${index === selected ? 'bg-blue-medium text-white' : ''}`}>
       <div className='flex flex-row items-center gap-2 relative'>
         <img src={userAvatar} alt='avt-user' className='w-10 h-10 object-cover rounded-full' />
         <span className='absolute h-[8px] w-[8px] bg-green-500 rounded-full bottom-[2px] left-[30px]'></span>
         <div className='flex flex-col'>
-          <span className='text-blue-dark font-medium text-lg leading-none'>Alexa</span>
-          <span className='text-sm font-medium text-[#748EA1]'>I cant access</span>
+          {/* Name */}
+          <span className={` ${index === selected ? 'bg-blue-medium text-white' : 'text-blue-dark'} font-medium text-lg leading-none`}>
+            Alexa
+          </span>
+          {/* Message Preview */}
+          <span className={`text-sm font-normal  ${index === selected ? 'bg-blue-medium text-white' : 'text-[#748EA1]'}`}>
+            I cant access
+          </span>
         </div>
       </div>
       <div className='flex flex-row gap-2  items-center'>
-        <div className='w-4 flex items-center justify-center h-4 rounded-full bg-blue-light text-white'>
-          <span className='text-[10px] font-bold'>
+        <div className={`w-4 flex items-center ${index === selected ? 'hidden' : ''} justify-center h-4 rounded-full bg-blue-light text-white`}>
+          <span className={`text-[10px] font-bold `}>
             1
           </span>
         </div>
@@ -29,6 +63,8 @@ const ChatBox = () => {
 }
 
 const Chat = () => {
+  const [selected, setSelected] = useState(null);
+
   return (
     <div className=' w-full px-12 h-[700px] py-10'>
       <div className=' w-full bg-white flex flex-row h-full rounded-[10px]'>
@@ -51,12 +87,11 @@ const Chat = () => {
           </div>
           {/* User List */}
           <div className='flex flex-col w-full gap-2'>
-            <ChatBox />
-            <ChatBox />
-            <ChatBox />
-            <ChatBox />
-            <ChatBox />
-            <ChatBox />
+            {
+              [1, 2, 3, 4, 5, 6].map((value, index) => (
+                <ChatBox index={index} selected={selected} setSelected={setSelected}/>  
+              ))
+            }
           </div>
         </div>
         {/* Right Side */}
@@ -75,6 +110,24 @@ const Chat = () => {
             <div>
               <IoIosInformationCircle style={{fontSize: "1.55rem", color: '#1E6EE5'}}/>
             </div>
+          </div>
+          {/* Chat Message */}
+          <div className='px-4 pt-6 h-[88%] w-full flex flex-col gap-2 overflow-y-auto'>
+            <Message/>
+            <Message userType='sender'/>
+            <Message/>
+            <Message userType='sender'/>
+            <Message/>
+            <Message userType='sender'/>
+            <Message/>
+          </div>
+          {/* Message Input */}
+          <div className='px-4 h-[12%] w-full flex flex-row items-center gap-4'>
+            <input type='text' placeholder='Message' className='border-2 w-[88%] border-blue-medium rounded-md placeholder:text-blue-light outline-none text-sm h-10 px-2'/>
+            <button className='bg-blue-medium w-[12%] h-10 flex flex-row justify-center items-center text-white font-inter font-semibold gap-2 text-sm rounded-md'>
+              <span>Send</span>
+              <IoSendSharp/>
+            </button>
           </div>
         </div>
       </div>
