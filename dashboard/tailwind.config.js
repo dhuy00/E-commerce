@@ -18,6 +18,7 @@ module.exports = {
       },
       dropShadow: {
         'dark': '0 4px 61px rgba(77, 71, 195, 0.4)',
+        'around': '0 0 5px rgba(184, 184, 184, 1)',
       },
     },
     fontFamily: {
@@ -26,6 +27,7 @@ module.exports = {
       'montserrat': "Montserrat",
       'outfit': "Outfit",
       'mulish': "Mulish",
+      'manrope': "Manrope",
     },
   },
 
