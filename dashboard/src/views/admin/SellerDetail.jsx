@@ -1,17 +1,19 @@
 import React from 'react'
 import sellerAvatar from './../../assets/avt_admin.jpg'
 import { BsShop } from "react-icons/bs";
-import { IoMdAdd, IoMdMail } from "react-icons/io";
+import { IoMdMail } from "react-icons/io";
 import { FaBox } from "react-icons/fa";
 import { RiBillLine } from "react-icons/ri";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { IoCloudOffline } from "react-icons/io5";
+import { FaAddressBook } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
-const ShopData = ({color, icon, number, description}) => {
+const ShopData = ({ color, icon, number, description }) => {
   return (
-    <div className='bg-white gap-8 border-2 flex flex-row justify-center items-center px-4 py-2 rounded-lg' style={{borderColor: color}}> 
+    <div className='bg-white gap-8 border-2 flex flex-row justify-center items-center px-4 py-2 rounded-lg' style={{ borderColor: color }}>
       {icon}
-      <div className='flex flex-col' style={{color: color}}>
+      <div className='flex flex-col' style={{ color: color }}>
         <span className='text-[2rem] font-poppins'>{number}</span>
         <span className='font-poppins text-[0.5rem]'>{description}</span>
       </div>
@@ -27,7 +29,7 @@ const SellerDetail = () => {
         {/* Avatar */}
         <img src={sellerAvatar} alt='seller-avt' className=' absolute left-[41%] top-[-90px] w-52 h-52 rounded-full object-cover drop-shadow-around' />
         {/* User Profile */}
-        <div className='flex flex-col mt-12'>
+        <div className='flex flex-col mt-20'>
           {/* User name and status */}
           <div className='flex justify-center flex-row gap-4  items-center relative'>
             <span className='font-manrope text-[2rem] text-[#263377] font-bold'>
@@ -51,22 +53,31 @@ const SellerDetail = () => {
               dummymail23@gmail.com
             </span>
           </div>
+          {/* User Address */}
+          <div className='flex flex-row text-[#606060] items-center gap-1 justify-center'>
+            <FaAddressBook />
+            <span>
+              118 Bach Dang, Binh Thanh, TP Ho Chi Minh
+            </span>
+          </div>
         </div>
         {/* User shop info */}
         <div className='flex flex-row gap-4 justify-center items-center'>
-          <ShopData color="#A7A3FF" number="31" icon={<FaBox style={{color: "A7A3FF", fontSize: "3rem"}}/>} description="Products"/>
-          <ShopData color="#7DB3DB" number="256" icon={<RiBillLine style={{color: "7DB3DB", fontSize: "3rem"}}/>} description="Orders"/>
-          <ShopData color="#0DA06A" number="$3245" icon={<FaRegMoneyBillAlt style={{color: "0DA06A", fontSize: "3rem"}}/>} description="Avg revenue"/>
+          <ShopData color="#A7A3FF" number="31" icon={<FaBox style={{ color: "A7A3FF", fontSize: "3rem" }} />} description="Products" />
+          <ShopData color="#7DB3DB" number="256" icon={<RiBillLine style={{ color: "7DB3DB", fontSize: "3rem" }} />} description="Orders" />
+          <ShopData color="#0DA06A" number="$3245" icon={<FaRegMoneyBillAlt style={{ color: "0DA06A", fontSize: "3rem" }} />} description="Avg revenue" />
         </div>
         {/* Button */}
         <div className='flex flex-row gap-4 justify-center items-center'>
-          <button className='border-2 border-blue-medium text-blue-medium px-8 font-bold py-1 rounded-md'>
-            Back
-          </button>
+          <Link to="/admin/dashboard/sellers">
+            <button className='border-2 border-blue-medium text-blue-medium px-8 font-bold py-1 rounded-md'>
+              Back
+            </button>
+          </Link>
           <button className='rounded-md flex flex-row font-bold text-white bg-blue-medium px-4 py-1 items-center gap-2'>
             Deactive
             <span>
-              <IoCloudOffline/>
+              <IoCloudOffline />
             </span>
           </button>
         </div>
