@@ -15,10 +15,12 @@ module.exports = {
         'blue-light': "#B0CCF6",
         'blue-medium': "#1E6EE5",
         'blue-dark': "#1C5387",
+        'blue-darker': "#263377"
       },
       dropShadow: {
         'dark': '0 4px 61px rgba(77, 71, 195, 0.4)',
-        'around': '0 0 5px rgba(184, 184, 184, 1)',
+        'around-light': '0 0 5px rgba(184, 184, 184, 1)',
+        'around-medium': '0 0 8px rgba(184, 184, 184, 1)',
       },
     },
     fontFamily: {
