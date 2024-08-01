@@ -106,7 +106,7 @@ const Orders = () => {
                   <td className='flex-1 text-left'>$125.70</td>
                   <td className='flex-1 text-left'><StatusBox status="Completed" /></td>
                   <td className='flex-1 text-left hover:underline text-blue-medium'>
-                    <Link to="/admin/dashboard/orders/2">
+                    <Link to="/seller/dashboard/orders/2">
                       <p>
                         View
                       </p>

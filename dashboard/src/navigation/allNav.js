@@ -11,58 +11,51 @@ import { FaBox } from "react-icons/fa";
 export const allNav = [
   {
     id: 1,
-    title: 'Dashboard',
-    icon: <IoHome />,
-    role: 'admin',
-    path: '/admin/dashboard'
-  },
-  {
-    id: 2,
-    title: 'Orders',
-    icon: <BiReceipt />,
-    role: 'admin',
-    path: '/admin/dashboard/orders'
-  },
-  {
-    id: 3,
     title: 'Categories',
     icon: <BiSolidCategory />,
     role: 'admin',
     path: '/admin/dashboard/categories'
   },
   {
-    id: 4,
+    id: 2,
     title: 'Sellers',
     icon: <HiOutlineUserGroup />,
     role: 'admin',
     path: '/admin/dashboard/sellers'
   },
   {
-    id: 5,
-    title: 'Products',
-    icon: <FaBox />,
+    id: 3,
+    title: 'Chat',
+    icon: <BsChatText />,
     role: 'admin',
-    path: '/admin/dashboard/products'
+    path: '/admin/dashboard/chat'
+  },
+    {
+    id: 4,
+    title: 'Dashboard',
+    icon: <IoHome />,
+    role: 'seller',
+    path: '/seller/dashboard'
+  },
+  {
+    id: 5,
+    title: 'Orders',
+    icon: <BiReceipt />,
+    role: 'seller',
+    path: '/seller/dashboard/orders'
   },
   {
     id: 6,
-    title: 'Deactive Sellers',
-    icon: <IoCloudOfflineSharp />,
-    role: 'admin',
-    path: '/admin/dashboard/deactive-sellers'
+    title: 'Products',
+    icon: <FaBox />,
+    role: 'seller',
+    path: '/seller/dashboard/products'
   },
   {
     id: 7,
     title: 'Add Product',
     icon: <MdOutlineAddShoppingCart />,
-    role: 'admin',
-    path: '/admin/dashboard/add-product'
-  },
-  {
-    id: 8,
-    title: 'Chat',
-    icon: <BsChatText />,
-    role: 'admin',
-    path: '/admin/dashboard/chat'
+    role: 'seller',
+    path: '/seller/dashboard/add-product'
   },
 ]

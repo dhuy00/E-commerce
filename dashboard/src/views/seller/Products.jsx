@@ -13,7 +13,8 @@ import { Link } from 'react-router-dom';
 
 const StatusBox = ({ status }) => {
   return (
-    <div className={`text-sm border-[1px] font-normal  px-6 py-2 w-fit rounded-full ${status.toUpperCase() === "PENDING" ? "bg-[#FFF5EB] text-[#FB7E15] border-[#FB7E15]" : status.toUpperCase() === "COMPLETED" ? "bg-[#F0FFFA] text-[#0DA06A] border-[#0DA06A]" : "bg-[#FFF5F5] text-[#F34A7C] border-[#F34A7C]"}`}>
+    <div className={`text-sm border-[1px] font-normal  px-6 py-2 w-fit 
+    rounded-full ${status.toUpperCase() === "PENDING" ? "bg-[#FFF5EB] text-[#FB7E15] border-[#FB7E15]" : status.toUpperCase() === "COMPLETED" ? "bg-[#F0FFFA] text-[#0DA06A] border-[#0DA06A]" : "bg-[#FFF5F5] text-[#F34A7C] border-[#F34A7C]"}`}>
       {status}
     </div>
   )
@@ -21,7 +22,8 @@ const StatusBox = ({ status }) => {
 
 const Card = ({ title, value, icon, bgColor, iconColor }) => {
   return (
-    <div className='flex flex-row justify-between items-center w-72 shadow-sm h-24 rounded-[20px] bg-white px-6 py-2'>
+    <div className='flex flex-row justify-between items-center w-72 shadow-sm h-24 
+    rounded-[20px] bg-white px-6 py-2'>
       <div className='flex flex-col gap-1'>
         <span className='text-xs font-medium text-[#0F4577]'>{title}</span>
         <span className='text-xl font-medium'>{value}</span>
@@ -78,15 +80,18 @@ const Products = () => {
         />
       </div>
       <div className='justify-end flex mr-16'>
-        <Link to="/admin/dashboard/add-product">
-        <button className='flex flex-row items-center gap-2 rounded-md text-sm px-4 py-2 font-semibold text-white bg-blue-medium'>
+        <Link to="/seller/dashboard/add-product">
+        <button className='flex flex-row items-center gap-2 rounded-md text-sm 
+        px-4 py-2 font-semibold text-white bg-blue-medium'>
           New product
           <MdOutlineAddBox style={{fontSize: "1.25rem"}}/>
         </button>
         </Link>
       </div>
-      <div className='flex flex-col gap-4 mx-8 px-8 py-8 mr-16 mb-8 bg-white rounded-[20px]'>
-        <div className='flex flex-row justify-between items-center border-solid border-b-2 pb-1'>
+      <div className='flex flex-col gap-4 mx-8 px-8 py-8 mr-16 mb-8 bg-white 
+      rounded-[20px]'>
+        <div className='flex flex-row justify-between items-center border-solid 
+        border-b-2 pb-1'>
           <p className='text-lg font-semibold text-[#0F4577]'>All products</p>
           <div className='text-gray-medium text-sm'>
             <label>Rows per page: </label>

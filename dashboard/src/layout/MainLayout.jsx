@@ -10,7 +10,9 @@ const MainLayout = () => {
     <div className=' w-full h-screen'>
       <Header showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
       <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar}/>
-      <div className={`bg-[#dfe3e9] ${!showSidebar ? 'ml-[67px]' : 'ml-56 '} mt-16 h-screen transition-all`}>
+      <div 
+        className={`bg-[#dfe3e9] ${!showSidebar ? 'ml-[67px]' : 'ml-56 '} mt-16 pb-12 
+        transition-all`}>
         <Outlet />
       </div>
     </div>

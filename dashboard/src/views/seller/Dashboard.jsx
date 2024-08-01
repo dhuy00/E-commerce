@@ -22,7 +22,7 @@ const Card = ({ title, value, icon, bgColor, iconColor }) => {
   )
 }
 
-const AdminDashboard = () => {
+const Dashboard = () => {
 
   const state = {
     series: [{
@@ -162,4 +162,4 @@ const AdminDashboard = () => {
   )
 }
 
-export default AdminDashboard
+export default Dashboard
