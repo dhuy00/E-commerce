@@ -2,13 +2,13 @@ import { IoHome } from "react-icons/io5";
 import { BiSolidCategory } from "react-icons/bi";
 import { BiReceipt } from "react-icons/bi";
 import { HiOutlineUserGroup } from "react-icons/hi2";
-import { IoCloudOfflineSharp } from "react-icons/io5";
 import { BsChatText } from "react-icons/bs";
-import { IoIosGitPullRequest } from "react-icons/io";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { FaBox } from "react-icons/fa";
+import { ImProfile } from "react-icons/im";
 
 export const allNav = [
+  // Admin Navigation
   {
     id: 1,
     title: 'Categories',
@@ -30,7 +30,8 @@ export const allNav = [
     role: 'admin',
     path: '/admin/dashboard/chat'
   },
-    {
+  // Seller Navigation
+  {
     id: 4,
     title: 'Dashboard',
     icon: <IoHome />,
@@ -57,5 +58,26 @@ export const allNav = [
     icon: <MdOutlineAddShoppingCart />,
     role: 'seller',
     path: '/seller/dashboard/add-product'
+  },
+  {
+    id: 8,
+    title: 'Chat Customer',
+    icon: <BsChatText />,
+    role: 'seller',
+    path: '/seller/dashboard/chat-customer'
+  },
+  {
+    id: 9,
+    title: 'Chat Admin',
+    icon: <BsChatText />,
+    role: 'seller',
+    path: '/seller/dashboard/chat-admin'
+  },
+  {
+    id: 10,
+    title: 'Profile',
+    icon: <ImProfile />,
+    role: 'seller',
+    path: '/seller/dashboard/profile'
   },
 ]

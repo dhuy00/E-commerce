@@ -96,6 +96,10 @@ const AddProduct = () => {
     console.log("product Info", productInfo)
   }
 
+  const handleDeleteImage = (deleteID) => {
+    setImages(images.filter(image => image.id !== deleteID))
+  }
+
   return (
     <div className='h-full font-poppins flex flex-col gap-6 pt-6 transition-all'>
       <div className='flex flex-row gap-4 px-8 pr-16 justify-between'>
@@ -149,7 +153,7 @@ const AddProduct = () => {
               </div>
             </div>
             {/* Image Input */}
-            <div className='w-[40%] h-96'>
+            <div className='w-[40%] h-96 relative'>
               <label htmlFor="img-1" className=' cursor-pointer h-full border-2 border-dashed border-[#1E6EE5] flex justify-center items-center flex-col'>
                 <img
                   src={images.length > 0 ? images.find(image => image.id === 'img-1')?.url : ''}
@@ -162,6 +166,14 @@ const AddProduct = () => {
                   Select Image
                 </span>
               </label>
+              {/* Delete Image */}
+              <span 
+                onClick={() => handleDeleteImage("img-1")} 
+                className={`bg-black cursor-pointer ${images.find(image => image.id === 'img-1') ? "" : "hidden"} opacity-80 absolute top-[-12px] right-[-10px] flex justify-center items-center text-white self-center w-8 h-8 rounded-full`}>
+                  <span>
+                    X
+                  </span>
+                </span>
               <input disabled={images.find(image => image.id === 'img-1') ? 'true' : ''} type='file' onChange={(e) => handleImage(e)} className='hidden' name='image' id='img-1' />
             </div>
           </div>
@@ -175,49 +187,79 @@ const AddProduct = () => {
             </div>
             {/* Additional Image */}
             <div className='w-[40%] mt-6 flex flex-row gap-2'>
-              <div className='w-[33%] h-36'>
+              <div className='w-[33%] h-36 relative'>
                 <label htmlFor="img-2" className=' cursor-pointer h-full border-2 border-dashed border-[#1E6EE5] flex justify-center items-center flex-col'>
                   <img
                     src={images.length > 0 ? images.find(image => image.id === 'img-2')?.url : ''}
                     alt='img-test'
                     className={`w-full ${images.find(image => image.id === 'img-2') ? "" : "hidden"} 
-                    h-[380px] object-cover`} />
+                    h-[140px] object-cover`} />
                   <FaRegImage className={`${images.find(image => image.id === 'img-2') ? "hidden" : ""}`} style={{ fontSize: "2.5rem", color: "#606060" }} />
                   <span className={`font-outfit ${images.find(image => image.id === 'img-2') ? "hidden" : ""} 
                         font-medium text-lg text-[#606060]`}>
                     Select Image
                   </span>
                 </label>
+                {/* Delete Image */}
+                <span 
+                onClick={() => handleDeleteImage("img-2")} 
+                className={`bg-black cursor-pointer ${images.find(image => image.id === 'img-2') ? "" : "hidden"} 
+                opacity-80 absolute top-[-10px] right-[-5px] flex justify-center items-center 
+                text-white self-center w-6 h-6 rounded-full`}>
+                  <span>
+                    x
+                  </span>
+                </span>
                 <input disabled={images.find(image => image.id === 'img-2') ? 'true' : ''} type='file' onChange={(e) => handleImage(e)} className='hidden' name='image' id='img-2' />
               </div>
-              <div className='w-[33%] h-36'>
+              <div className='w-[33%] h-36 relative'>
                 <label htmlFor="img-3" className=' cursor-pointer h-full border-2 border-dashed border-[#1E6EE5] flex justify-center items-center flex-col'>
                   <img
                     src={images.length > 0 ? images.find(image => image.id === 'img-3')?.url : ''}
                     alt='img-test'
                     className={`w-full ${images.find(image => image.id === 'img-3') ? "" : "hidden"} 
-                    h-[380px] object-cover`} />
+                    h-[140px] object-cover`} />
                   <FaRegImage className={`${images.find(image => image.id === 'img-3') ? "hidden" : ""}`} style={{ fontSize: "2.5rem", color: "#606060" }} />
                   <span className={`font-outfit ${images.find(image => image.id === 'img-3') ? "hidden" : ""} 
                         font-medium text-lg text-[#606060]`}>
                     Select Image
                   </span>
                 </label>
+                {/* Delete Image */}
+                <span 
+                onClick={() => handleDeleteImage("img-3")} 
+                className={`bg-black cursor-pointer ${images.find(image => image.id === 'img-3') ? "" : "hidden"} 
+                opacity-80 absolute top-[-10px] right-[-5px] flex justify-center items-center 
+                text-white self-center w-6 h-6 rounded-full`}>
+                  <span>
+                    x
+                  </span>
+                </span>
                 <input disabled={images.find(image => image.id === 'img-3') ? 'true' : ''} type='file' onChange={(e) => handleImage(e)} className='hidden' name='image' id='img-3' />
               </div>
-              <div className='w-[33%] h-36'>
+              <div className='w-[33%] h-36 relative'>
                 <label htmlFor="img-4" className=' cursor-pointer h-full border-2 border-dashed border-[#1E6EE5] flex justify-center items-center flex-col'>
                   <img
                     src={images.length > 0 ? images.find(image => image.id === 'img-4')?.url : ''}
                     alt='img-test'
                     className={`w-full ${images.find(image => image.id === 'img-4') ? "" : "hidden"} 
-                    h-[380px] object-cover`} />
+                    h-[140px] object-cover`} />
                   <FaRegImage className={`${images.find(image => image.id === 'img-4') ? "hidden" : ""}`} style={{ fontSize: "2.5rem", color: "#606060" }} />
                   <span className={`font-outfit ${images.find(image => image.id === 'img-4') ? "hidden" : ""} 
                         font-medium text-lg text-[#606060]`}>
                     Select Image
                   </span>
                 </label>
+                {/* Delete Image */}
+                <span 
+                onClick={() => handleDeleteImage("img-4")} 
+                className={`bg-black cursor-pointer ${images.find(image => image.id === 'img-4') ? "" : "hidden"} 
+                opacity-80 absolute top-[-10px] right-[-5px] flex justify-center items-center 
+                text-white self-center w-6 h-6 rounded-full`}>
+                  <span>
+                    x
+                  </span>
+                </span>
                 <input disabled={images.find(image => image.id === 'img-4') ? 'true' : ''} type='file' onChange={(e) => handleImage(e)} className='hidden' name='image' id='img-4' />
               </div>
             </div>
