@@ -2,12 +2,9 @@ import React from 'react'
 import sellerAvatar from './../../assets/avt_admin.jpg'
 import { BsShop } from "react-icons/bs";
 import { IoMdMail } from "react-icons/io";
-import { FaBox } from "react-icons/fa";
-import { RiBillLine } from "react-icons/ri";
-import { FaRegMoneyBillAlt } from "react-icons/fa";
-import { IoCloudOffline } from "react-icons/io5";
+import { FaCamera } from "react-icons/fa";
 import { FaAddressBook } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+
 
 const InputField = ({ inputName }) => {
   return (
@@ -29,7 +26,12 @@ const Profile = () => {
         {/* Profile */}
         <div className='pl-8 pr-20 pt-8 border-r-2 h-full border-gray-light flex flex-col items-center'>
           {/* Avatar */}
-          <img src={sellerAvatar} alt='seller-avt' className=' w-28 h-28 rounded-full object-cover drop-shadow-around' />
+          <div className='relative'>
+            <img src={sellerAvatar} alt='seller-avt' className=' w-28 h-28 rounded-full object-cover drop-shadow-around' />
+            <div className='absolute top-0 bg-black opacity-50 w-full h-full rounded-full flex justify-center items-center'>
+              <FaCamera style={{color: "white"}}/>
+            </div>
+          </div>
           {/* User Profile */}
           <div className='flex flex-col items-center'>
             {/* User name and status */}
@@ -59,7 +61,7 @@ const Profile = () => {
             <div className='flex flex-row text-gray-light items-center gap-1 text-[12px] font-normal'>
               <FaAddressBook />
               <span>
-                118 Bach Dang, Binh Thanh, TP Ho Chi Minh
+                188 Bach Dang, Binh Thanh, TP Ho Chi Minh
               </span>
             </div>
             {/* Change Profile */}
