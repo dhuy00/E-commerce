@@ -85,7 +85,7 @@ const Register = () => {
       dispatch(clearMessage());
       setTimeout(() => {
         navigate('/');
-      }, 2000);
+      }, 1000);
     }
   }, [errorMessage, successMessage])
 

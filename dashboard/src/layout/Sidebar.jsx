@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { RiMenu2Line } from "react-icons/ri";
 import { FaListUl } from "react-icons/fa6";
 import { FaShopware } from "react-icons/fa";
 import { ImExit } from "react-icons/im";
 import { getNav } from '../navigation';
 import { Link, useLocation } from 'react-router-dom'
+import { useSelector } from 'react-redux';
 
 const Sidebar = ({showSidebar, setShowSidebar}) => {
   const {pathname} = useLocation();
   const [allNav, setAllNav] = useState([]);
 
+  const role = useSelector(state => state.auth.role)
+
   useEffect(() => {
-    const navs = getNav('seller');
+    const navs = getNav(role);
     setAllNav(navs);
 
-  }, [])
+  }, [role])
 
 
   const navStyle = 'items-center flex flex-row gap-2 font-medium font-inter px-2 h-10 hover:cursor-pointer hover:text-white rounded-lg hover:bg-[#007AFF] duration-[60ms] transition-all'

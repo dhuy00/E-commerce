@@ -2,8 +2,16 @@ import { useEffect, useState } from "react";
 import Router from "./router/Router";
 import publicRoutes from "./router/routes/publicRoutes";
 import getRoutes from "./router/routes";
+import { useDispatch, useSelector } from "react-redux";
+import { get_user_info } from "./store/Reducers/authReducer";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 function App() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const token = useSelector(state => state.auth.token)
+
   const [allRoutes, setAllRoutes] = useState([...publicRoutes]);
   // console.log(allRoutes)
 
@@ -11,6 +19,12 @@ function App() {
     const routes = getRoutes();
     setAllRoutes([...allRoutes, routes])
   }, [])
+
+  useEffect(() => {
+    if(token) {
+      dispatch(get_user_info());
+    }
+  }, [token])
 
   return <Router allRoutes={allRoutes}/>
 }

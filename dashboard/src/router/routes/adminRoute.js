@@ -5,7 +5,6 @@ const Chat = lazy(() => import('./../../views/admin/Chat'))
 const Categories = lazy(() => import('./../../views/admin/Categories'))
 
 const adminRoutes = [
-  
   {
     path: '/admin/dashboard/categories',
     element: <Categories/>,

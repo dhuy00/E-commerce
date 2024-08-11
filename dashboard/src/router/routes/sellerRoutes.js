@@ -7,15 +7,10 @@ const Orders = lazy(() => import("./../../views/seller/Orders"))
 const OrderDetail = lazy(() => import("./../../views/seller/OrderDetail"))
 const Products = lazy(() => import("./../../views/seller/Products"))
 const AddProduct = lazy(() => import("./../../views/seller/AddProduct"))
-const Home = lazy(() => import("../../views/Home"))
+
 
 
 const sellerRoutes = [
-  {
-    path: '/',
-    element: <Home/>,
-    ability: ['admin', 'seller']
-  },
   {
     path: '/seller/dashboard',
     element: <Dashboard/>,

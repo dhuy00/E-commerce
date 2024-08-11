@@ -1,11 +1,12 @@
 const jwt = require('jsonwebtoken')
 const { responseReturn } = require('../utils/response')
 
-module.exports.authMiddleware = async (req, res, nest) => {
+module.exports.authMiddleware = async (req, res, next) => {
   const { accessToken } = req.cookies
 
   if (!accessToken) {
-    responseReturn(res, 409, { error: "PLease Login First" });
+    console.log("error");
+    responseReturn(res, 409, { error: "Please Login Firs. AccessToken Not Found" });
   }
   else {
     try {
@@ -14,7 +15,7 @@ module.exports.authMiddleware = async (req, res, nest) => {
       req.id = decodeToken.id;
       next();
     } catch (error) {
-      responseReturn(res, 409, { error: "PLease Login First" });
+      responseReturn(res, 409, { error: "Invalid Or Expired Token" });
     }
   }
 }

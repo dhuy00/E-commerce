@@ -106,14 +106,17 @@ class authControllers {
     const {id, role} = req;
     try {
       if (role === "admin") {
-        const user = adminModel.findById({id});
+        const user = await adminModel.findById(id);
         responseReturn(res, 200, {userInfo: user})
       }
-      else {
-        console.log("Seller Info")
+      else if(role == "seller") {
+        const seller = await sellerModel.findById(id);
+        responseReturn(res, 200, {userInfo: seller})
+        console.log("Seller Info", seller);
       }
     } catch (error) {
-      console.log(error.message);
+      console.log("Something happend", error.message);
+      responseReturn(res, 500, {error: "Something happened"})
     }
   }
 }
