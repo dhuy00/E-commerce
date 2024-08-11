@@ -1,13 +1,11 @@
-const jwt = require('jsonwebtoken')
-const { responseReturn } = require('../utils/response')
+const jwt = require("jsonwebtoken");
+const { responseReturn } = require("../utils/response");
 
-module.exports.authMiddleware = async (req, res, nest) => {
-  const { accessToken } = req.cookies
-
+module.exports.authMiddleware = async (req, res, next) => {
+  const { accessToken } = req.cookies;
   if (!accessToken) {
     responseReturn(res, 409, { error: "PLease Login First" });
-  }
-  else {
+  } else {
     try {
       const decodeToken = jwt.verify(accessToken, process.env.SECRET);
       req.role = decodeToken.role;
@@ -17,4 +15,4 @@ module.exports.authMiddleware = async (req, res, nest) => {
       responseReturn(res, 409, { error: "PLease Login First" });
     }
   }
-}
+};
