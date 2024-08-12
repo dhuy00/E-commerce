@@ -52,7 +52,38 @@ class categoryControllers {
   };
 
   get_category = async (req, res) => {
-    console.log(req.body);
+    const { page, searchValue, parPage } = req.query;
+    const skipPage = parseInt(parPage) * parseInt(page) - 1;
+    try {
+      if (searchValue && page && parPage) {
+        const categories = await categoryModel
+          .find({
+            $text: { $search: searchValue },
+          })
+          .skip(skipPage)
+          .limit(parPage)
+          .sort({ createdAt: -1 });
+        const totalCategories = await categoryModel
+          .find({
+            $text: { $search: searchValue },
+          })
+          .countDocuments();
+      } else if (searchValue === "" && page && parPage) {
+        const categories = await categoryModel
+          .find({})
+          .skip(skipPage)
+          .limit(parPage)
+          .sort({ createdAt: -1 });
+        const totalCategories = await categoryModel.find({}).countDocuments();
+      } else {
+        const categories = await categoryModel.find({}).sort({ createdAt: -1 });
+        const totalCategories = await categoryModel.find({}).countDocuments();
+      }
+      responseReturn(res, 200, { categories, totalCategories });
+    } catch (error) {
+      console.log(error);
+      responseReturn(res, 500, { error: "Internal Server Error" });
+    }
   };
 }
 
