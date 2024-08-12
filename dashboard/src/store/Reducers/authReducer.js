@@ -90,7 +90,7 @@ export const authReducer = createSlice({
     successMessage: '',
     errorMessage: '',
     loader: false,
-    userInfo: '',
+    userInfo: {},
     role: returnRole(localStorage.getItem('accessToken')),
     token: localStorage.getItem('accessToken'),
   },

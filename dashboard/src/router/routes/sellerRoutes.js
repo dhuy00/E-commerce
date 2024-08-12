@@ -1,4 +1,6 @@
 import { lazy } from "react"
+import Deactive from "../../views/seller/Deactive"
+import Pending from "../../views/seller/Pending"
 const Profile = lazy(() => import("./../../views/seller/Profile"))
 const ChatAdmin = lazy(() => import("./../../views/seller/ChatAdmin"))
 const ChatCustomer = lazy(() => import("./../../views/seller/ChatCustomer"))
@@ -14,42 +16,62 @@ const sellerRoutes = [
   {
     path: '/seller/dashboard',
     element: <Dashboard/>,
-    ability: ['seller']
+    role: 'seller',
+    status: ['active']
   },
   {
     path: '/seller/dashboard/orders',
     element: <Orders/>,
-    ability: ['seller']
+    role: 'seller',
+    status: ['active']
   },
   {
     path: '/seller/dashboard/orders/:id',
     element: <OrderDetail/>,
-    ability: ['seller']
+    role: 'seller',
+    status: ['active']
   },
   {
     path: '/seller/dashboard/products',
     element: <Products/>,
-    ability: ['seller']
+    role: 'seller',
+    status: ['active']
   },
   {
     path: '/seller/dashboard/add-product',
     element: <AddProduct/>,
-    ability: ['seller']
+    role: 'seller',
+    status: ['active']
   },
   {
     path: '/seller/dashboard/chat-customer',
     element: <ChatCustomer/>,
-    ability: ['seller']
+    role: 'seller',
+    status: ['active']
   },
   {
     path: '/seller/dashboard/chat-admin',
     element: <ChatAdmin/>,
-    ability: ['seller']
+    role: 'seller',
+    status: ['active', 'deactive', 'pending']
   },
   {
     path: '/seller/dashboard/profile',
     element: <Profile/>,
-    ability: ['seller']
+    role: 'seller',
+    status: ['active', 'deactive', 'pending']
+  },
+  {
+    path: '/seller/account-deactive',
+    element: <Deactive/>,
+    role: 'seller',
+    status: ['deactive']
+  },
+  {
+    path: '/seller/account-pending',
+    element: <Pending/>,
+    role: 'seller',
+    status: ['pending']
   },
 ]
 
