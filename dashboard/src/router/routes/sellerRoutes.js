@@ -1,6 +1,6 @@
 import { lazy } from "react"
-import Deactive from "../../views/seller/Deactive"
-import Pending from "../../views/seller/Pending"
+const Deactive = lazy(() => import("./../../views/seller/Deactive"))
+const Pending = lazy(() => import("./../../views/seller/Pending"))
 const Profile = lazy(() => import("./../../views/seller/Profile"))
 const ChatAdmin = lazy(() => import("./../../views/seller/ChatAdmin"))
 const ChatCustomer = lazy(() => import("./../../views/seller/ChatCustomer"))

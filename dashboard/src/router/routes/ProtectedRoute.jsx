@@ -6,24 +6,24 @@ const ProtectedRoute = ({ route, children }) => {
   const role = useSelector(state => state.auth.role);
   const userStatus = useSelector(state => state.auth.userInfo.status);
 
-  if (userStatus === undefined) {
+  if (userStatus === undefined && role !== "admin") {
     return null;
   }
 
   if (role) {
     if (role === route.role) {
-      // console.log(role);
-      // if (route.status.includes(userStatus) || role === "admin") {
+      console.log(role);
+      if (route.status?.includes(userStatus) || role === "admin") {
         return <Suspense fallback={null}>{children}</Suspense>;
-      // } else {
-      //   if (userStatus?.toUpperCase() === 'PENDING') {
-      //     console.log('account pending');
-      //     return <Navigate to="/seller/account-pending" />;
-      //   } else {
-      //     console.log('account deactive', userStatus);
-      //     return <Navigate to="/seller/account-deactive" />;
-      //   }
-      // }
+      } else {
+        if (userStatus?.toUpperCase() === 'PENDING') {
+          console.log('account pending');
+          return <Navigate to="/seller/account-pending" />;
+        } else {
+          console.log('account deactive', userStatus);
+          return <Navigate to="/seller/account-deactive" />;
+        }
+      }
     } else {
       console.log('route role', route.role);
       return <Navigate to="/unauthorized" />;

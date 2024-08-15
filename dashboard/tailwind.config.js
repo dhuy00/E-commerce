@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         'violet-medium' : '#A7A3FF',
         'violet-dark' : '#4D47C3',
+        'violet-main': '#8741E2',
         'violet-light': '#F0EFFF',
         'gray-border': "#D1D1D1",
         'gray-light': '#7D7D7D',
@@ -15,7 +16,8 @@ module.exports = {
         'blue-light': "#B0CCF6",
         'blue-medium': "#1E6EE5",
         'blue-dark': "#1C5387",
-        'blue-darker': "#263377"
+        'blue-darker': "#263377",
+        'pink-main': "#FB2E86"
       },
       dropShadow: {
         'dark': '0 4px 61px rgba(77, 71, 195, 0.4)',
@@ -30,6 +32,8 @@ module.exports = {
       'outfit': "Outfit",
       'mulish': "Mulish",
       'manrope': "Manrope",
+      'mplus': ['"M PLUS Rounded 1c"', 'sans-serif'],
+      'roboto': "Roboto"
     },
   },
 

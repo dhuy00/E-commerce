@@ -1,4 +1,5 @@
 import { lazy } from "react";
+const LandingPage = lazy(() => import("../../views/pages/landing-page/LandingPage"));
 const Login = lazy(() => import("../../views/auth/Login"));
 const Register = lazy(() => import("../../views/auth/Register"));
 const AdminLogin = lazy(() => import("../../views/auth/AdminLogin"));
@@ -26,6 +27,10 @@ const publicRoutes = [
   {
     path: '/unauthorized',
     element: <Unauthorized/>
+  },
+  {
+    path: '/landingpage',
+    element: <LandingPage/>
   }
 ]
 
