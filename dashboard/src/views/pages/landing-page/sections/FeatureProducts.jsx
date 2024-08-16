@@ -9,7 +9,7 @@ import { MdOutlineNavigateNext } from "react-icons/md";
 import { IoIosArrowBack } from "react-icons/io";
 
 
-const ProcductCard = ({name, price, rating, image}) => {
+const ProcductCard = ({ name, price, rating, image }) => {
   return (
     <div className='hover:-translate-y-2 transition-all px-6 py-6 rounded-md shadow-lg flex flex-col gap-2 justify-center items-center'>
       {/* Image */}
@@ -41,33 +41,40 @@ const ProcductCard = ({name, price, rating, image}) => {
 
 const FeatureProducts = () => {
   return (
-    <div className='relative'>
+    <div className='relative py-4'>
       {/* Title */}
       <div className='flex flex-col items-center justify-center font-outfit font-semibold text-lg tracking-wide'>
         <h2 className='text-blue-darker'>Feature Products</h2>
         <span className='w-32 h-[2.5px] bg-blue-darker'>
-
         </span>
       </div>
       {/* Product List */}
       <div className='flex flex-row gap-8 justify-center items-center mt-8'>
-        <ProcductCard name="Nike Air Max 270" price="$231" rating="4.5" image={shoes}/>
-        <ProcductCard name="Ikea Ektorp Sofa" price="$205" rating="4" image={sofa}/>
-        <ProcductCard name="Conference Room Table" price="$212" rating="4.5" image={table}/>
-        <ProcductCard name="TEMPUR-Cloud Pillow" price="$50" rating="5" image={pillow}/>
+        <ProcductCard name="Nike Air Max 270" price="$231" rating="4.5" image={shoes} />
+        <ProcductCard name="Ikea Ektorp Sofa" price="$205" rating="4" image={sofa} />
+        <ProcductCard name="Conference Room Table" price="$212" rating="4.5" image={table} />
+        <ProcductCard name="TEMPUR-Cloud Pillow" price="$50" rating="5" image={pillow} />
       </div>
       <div>
         <button className='absolute top-1/2 right-8 bg-[#6548DC] text-white w-6 flex justify-center text-3xl h-10 items-center'>
-          <MdOutlineNavigateNext/>
+          <MdOutlineNavigateNext />
         </button>
         <button className='absolute top-1/2 left-8 bg-[#6548DC] text-white w-6 flex justify-center text-3xl h-10 items-center'>
-          <IoIosArrowBack/>
+          <IoIosArrowBack />
         </button>
       </div>
-      <div>
-        <span className='w-24 h-[3px] bg-pink-main'>
-        </span>
+      <div className='absolute mt-8 left-[45%]'>
+        {
+          [1, 2, 3, 4].map((index) => (
+            <span
+              key={index}
+              className={`absolute transform cursor-pointer -translate-x-1/2 w-6 rounded-md h-[3px] bg-pink-main ${index === 1 ? "" : "opacity-45"}`}
+              style={{ left: `${index * 30}px` }}  // Adjust top base`d on index
+            ></span>
+          ))
+        }
       </div>
+
     </div>
   )
 }
