@@ -7,30 +7,30 @@ import { TiTick } from "react-icons/ti";
 const ProductCard = ({ image, name, price, description }) => {
   return (
     <div className='flex flex-row border-2 border-[#EAEAEA] rounded-lg 
-    overflow-hidden w-[500px] h-72'>
+    overflow-hidden w-[500px] h-[310px] hover:-translate-y-2 cursor-pointer transition-all'>
       {/* Product Image */}
       <img src={image} alt='product-img' className='w-60 object-cover' />
       {/* Product Info */}
-      <div className='flex flex-col pl-12 pt-8 pb-4 gap-2'>
+      <div className='flex flex-col px-8 pt-8 pb-4 gap-2 justify-center'>
         {/* Name */}
-        <h3 className='text-[1.35rem] font-semibold text-pink-main'>
+        <h3 className='text-[1.45rem] font-outfit font-medium text-pink-main'>
           {name}
         </h3>
         {/* Price */}
-        <p className='text-lg font-semibold'>
+        <p className='text-2xl font-medium'>
           {price}
         </p>
         {/* List */}
         <ul className='flex flex-col justify-center items-justify gap-2 text-[1rem]'>
-          <li className='flex flex-row items-center gap-1'>
+          <li className='flex flex-row items-center gap-1 text-[15px]'>
             <TiTick style={{ color: "39CB74" }} />
             <span>Long Lasting</span>
           </li>
-          <li className='flex flex-row items-center gap-1'>
+          <li className='flex flex-row items-center gap-1 text-[15px]'>
             <TiTick style={{ color: "39CB74" }} />
             <span>Affordable Price</span>
           </li>
-          <li className='flex flex-row items-center gap-1'>
+          <li className='flex flex-row items-center gap-1 text-[15px]'>
             <TiTick style={{ color: "39CB74" }} />
             <span>Best Perfume</span>
           </li>
@@ -50,7 +50,7 @@ const ProductCard = ({ image, name, price, description }) => {
 
 const LatestProducts = () => {
   return (
-    <div className='mt-12 mb-8'>
+    <div className='mt-12 mb-16'>
       {/* Title */}
       <div className='flex flex-col items-center justify-center font-outfit font-semibold text-lg tracking-wide'>
         <h2 className='text-blue-darker'>Latest Products</h2>

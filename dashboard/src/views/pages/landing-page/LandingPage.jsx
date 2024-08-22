@@ -6,6 +6,9 @@ import SearchBar from './components/SearchBar'
 import Category from './components/Category'
 import FeatureProducts from './sections/FeatureProducts'
 import LatestProducts from './sections/LatestProducts'
+import TopRated from './sections/TopRated'
+import DiscountProducts from './sections/DiscountProducts'
+import Footer from './components/Footer'
 
 const LandingPage = () => {
   return (
@@ -17,6 +20,9 @@ const LandingPage = () => {
       <Category/>
       <FeatureProducts/>
       <LatestProducts/>
+      <TopRated/>
+      <DiscountProducts/>
+      <Footer/>
     </div>
   )
 }
