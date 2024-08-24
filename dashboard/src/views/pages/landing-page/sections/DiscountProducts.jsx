@@ -24,7 +24,7 @@ const ProductCard = () => {
 
 const DiscountProducts = () => {
   return (
-    <div className='mb-16'>
+    <div className='mb-24'>
       {/* Title */}
       <div className='flex flex-col mb-8 items-center justify-center font-outfit 
       font-semibold text-lg tracking-wide'>
