@@ -4,6 +4,8 @@ const sellerCustomerModel = require("../models/chat/sellerCustomerModel");
 const { responseReturn } = require("../utils/response");
 const bcrypt = require("bcrypt");
 const { createToken } = require("../utils/tokenCreate");
+const formidable = require("formidable");
+const cloudinary = require("cloudinary").v2;
 
 class authControllers {
   admin_login = async (req, res) => {
@@ -113,7 +115,53 @@ class authControllers {
         responseReturn(res, 200, { userInfo: seller });
       }
     } catch (error) {
-      console.log(error.message);
+      responseReturn(res, 500, { error: "Internal Server Error" });
+    }
+  };
+
+  profile_image_upload = async (req, res) => {
+    const { id } = req;
+    const form = formidable.IncomingForm({ multiples: true });
+    form.parse(req, async (err, _, files) => {
+      cloudinary.config({
+        cloud_name: process.env.CLOUD_NAME,
+        api_key: process.env.API_KEY,
+        api_secret: process.env.API_SECRET,
+        secure: true,
+      });
+      const { image } = files;
+      try {
+        const result = await cloudinary.uploader.upload(image.filepath, {
+          folder: "profile",
+        });
+        if (result) {
+          const userInfo = await sellerModel.findByIdAndUpdate(id, {
+            image: result.secure_url,
+          });
+          responseReturn(res, 200, { userInfo, message: "Image uploaded!" });
+        } else {
+          responseReturn(res, 404, { error: "Something went wrong" });
+        }
+      } catch (error) {
+        responseReturn(res, 500, { error: "Internal Server Error" });
+      }
+    });
+  };
+
+  profile_info_add = async (req, res) => {
+    const { id } = req;
+    const { division, district, shopName, sub_district } = req.body;
+    try {
+      const userInfo = await sellerModel.findByIdAndUpdate(id, {
+        shopInfo: {
+          shopName,
+          division,
+          district,
+          sub_district,
+        },
+      });
+      responseReturn(res, 200, { userInfo, message: "Profile Updated!" });
+    } catch (error) {
       responseReturn(res, 500, { error: "Internal Server Error" });
     }
   };

@@ -71,6 +71,7 @@ class categoryControllers {
             $text: { $search: searchValue },
           })
           .countDocuments();
+        responseReturn(res, 200, { categories, totalCategories });
       } else if (searchValue === "" && page && parPage) {
         const categories = await categoryModel
           .find({})
@@ -78,11 +79,12 @@ class categoryControllers {
           .limit(parPage)
           .sort({ createdAt: -1 });
         const totalCategories = await categoryModel.find({}).countDocuments();
+        responseReturn(res, 200, { categories, totalCategories });
       } else {
         const categories = await categoryModel.find({}).sort({ createdAt: -1 });
         const totalCategories = await categoryModel.find({}).countDocuments();
+        responseReturn(res, 200, { categories, totalCategories });
       }
-      responseReturn(res, 200, { categories, totalCategories });
     } catch (error) {
       console.log(error);
       responseReturn(res, 500, { error: "Internal Server Error" });
