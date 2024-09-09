@@ -19,7 +19,7 @@ const LandingPage = () => {
       <SearchBar/>
       <Category/>
       <FeatureProducts/>
-      <LatestProducts/>
+      <LatestProducts name="Latest Products"/>
       <TopRated/>
       <DiscountProducts/>
       <Footer/>

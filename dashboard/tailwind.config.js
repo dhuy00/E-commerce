@@ -24,6 +24,11 @@ module.exports = {
         'around-light': '0 0 5px rgba(184, 184, 184, 1)',
         'around-medium': '0 0 8px rgba(184, 184, 184, 1)',
       },
+      boxShadow: {
+        'dark': '0 4px 61px rgba(77, 71, 195, 0.4)',
+        'around-light': '0 0 5px rgba(184, 184, 184, 1)',
+        'around-medium': '0 0 8px rgba(184, 184, 184, 1)',
+      },
     },
     fontFamily: {
       'poppins' : 'Poppins',

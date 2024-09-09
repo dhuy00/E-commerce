@@ -1,10 +1,13 @@
 import { lazy } from "react";
+const OrderReview = lazy(() => import("../../views/pages/OrderReview"));
+const ProductDetail = lazy(() => import("./../../views/pages/ProductDetail"));
 const LandingPage = lazy(() => import("../../views/pages/landing-page/LandingPage"));
 const Login = lazy(() => import("../../views/auth/Login"));
 const Register = lazy(() => import("../../views/auth/Register"));
 const AdminLogin = lazy(() => import("../../views/auth/AdminLogin"));
 const Home = lazy(() => import("../../views/Home"));
 const Unauthorized = lazy(() => import("../../views/error/Unauthorized"));
+
 
 const publicRoutes = [
   {
@@ -31,7 +34,16 @@ const publicRoutes = [
   {
     path: '/landingpage',
     element: <LandingPage/>
-  }
+  },
+  {
+    path: '/product-detail',
+    element: <ProductDetail/>
+  },
+  {
+    path: '/order-review',
+    element: <OrderReview/>
+  },
+
 ]
 
 export default publicRoutes
