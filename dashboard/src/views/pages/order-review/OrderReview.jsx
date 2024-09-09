@@ -6,7 +6,8 @@ import customerAvatar from './../../../assets/avt_user.png'
 
 const ProductItem = () => {
   return (
-    <div className='border-2 px-2 py-2 rounded-md bg-[#ECEBEB] justify-between items-center flex flex-row border-gray-border'>
+    <div className='border-2 px-2 py-2 rounded-md bg-[#ECEBEB] justify-between 
+    items-center flex flex-row border-gray-border'>
       <div className='flex flex-row gap-2 items-center'>
         {/* Image */}
         <img src={customerAvatar} alt='customer-avt' className='w-[50px] h-[50px] rounded-md' />
@@ -21,7 +22,11 @@ const ProductItem = () => {
         </div>
       </div>
       {/* Quantity */}
-      <p className='font-outfit font-semibold text-sm mr-4'>2</p>
+      <div className='flex flex-col justify-center items-center mr-4'>
+        <button className='bg-gray-300 w-8 font-bold '>-</button>
+        <p className='font-outfit font-semibold text-sm'>2</p>
+        <button className='bg-gray-300 w-8 font-bold'>+</button>
+      </div>
     </div>
   )
 }
