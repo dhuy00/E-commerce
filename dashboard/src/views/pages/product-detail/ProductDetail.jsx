@@ -1,126 +1,24 @@
 import React from 'react'
-import Header from './landing-page/components/Header'
-import Nav from './landing-page/components/Nav'
-import box from './../../assets/box.png'
-import chair1 from './../../assets/chair/1.jpg'
-import chair2 from './../../assets/chair/2.jpg'
-import chair3 from './../../assets/chair/3.jpg'
-import chair4 from './../../assets/chair/4.jpg'
+import Header from '../landing-page/components/Header'
+import Nav from '../landing-page/components/Nav'
+import box from './../../../assets/box.png'
+import chair1 from './../../../assets/chair/1.jpg'
+import chair2 from './../../../assets/chair/2.jpg'
+import chair3 from './../../../assets/chair/3.jpg'
+import chair4 from './../../../assets/chair/4.jpg'
 import { FaStar } from "react-icons/fa";
 import { FaTwitterSquare } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaSquareInstagram } from "react-icons/fa6";
 import { FaFacebookSquare } from "react-icons/fa";
 import { CiHeart, CiStar } from "react-icons/ci";
-import tempImg from './../../assets/admin_bg.png'
 import { MdOutlineFileUpload, MdOutlineNavigateNext } from "react-icons/md";
-import { BiReceipt } from "react-icons/bi";
-import perfume from './../../assets/perfume.jpg';
-import Footer from './landing-page/components/Footer';
+import Footer from '../landing-page/components/Footer'
 import { IoIosArrowBack } from "react-icons/io";
-
-
-
-const RatingBar = ({ star, ratingScore }) => {
-  const percentage = (ratingScore / 5) * 100;
-
-  return (
-    <div className='flex flex-row items-center gap-2'>
-      <FaStar className='text-yellow-500' />
-      <span>{star}</span>
-      <span className='w-48 h-2 relative rounded-md bg-gray-200'>
-        <span
-          className='h-2 absolute rounded-md bg-black'
-          style={{ width: `${percentage}%` }} // Set width dynamically
-        ></span>
-      </span>
-    </div>
-  );
-}
-
-const Review = () => {
-  const imageStyle = 'w-16 h-16 object-cover rounded-lg';
-  return (
-    <div className='font-outfit flex flex-col justify-center leading-none gap-2 mr-12
-    border-2 border-gray-300 px-4 py-4 rounded-[20px] text-gray-light'>
-      {/* Name */}
-      <p className='text-lg font-medium text-black'>Duc Huy</p>
-      {/* Star and Date */}
-      <div className='flex flex-row justify-between'>
-        {/* Star */}
-        <div className='flex flex-row gap-2 text-yellow-500'>
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
-        </div>
-        {/* Date */}
-        <span className='font-medium'>12 October 2024</span>
-      </div>
-      {/* Content */}
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Nulla condimentum sem neque, vel mollis turpis tempor faucibus. Vivamus a.
-      </p>
-      {/* Images */}
-      <div className='flex flex-row gap-2'>
-        <img className={imageStyle} src={tempImg} alt='cmt-img' />
-        <img className={imageStyle} src={tempImg} alt='cmt-img' />
-        <img className={imageStyle} src={tempImg} alt='cmt-img' />
-      </div>
-    </div>
-  )
-}
-
-const ProductCard = ({ name, price, rating, sold }) => {
-  return (
-    <div className='border-2 border-gray-border overflow-hidden w-[600px] h-48 rounded-[1rem]
-    flex flex-row gap-4'>
-      {/* Image */}
-      <img className='w-[30%] h-full object-cover' src={perfume} alt='temp-img' />
-      {/* Content */}
-      <div className='flex flex-col gap-2 py-2 font-outfit'>
-        {/* Name */}
-        <p className='font-medium fond-outfit text-xl text-[#184363]'>{name}</p>
-        {/* Rating */}
-        <div className='flex flex-row gap-2 text-yellow-500'>
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
-        </div>
-        {/* Introduction */}
-        <p>Never have to waking up late in the morning</p>
-        {/* Sold */}
-        <div className='flex flex-row gap-2 items-center text-md font-medium text-gray-400'>
-          <BiReceipt /> <span>{sold}</span>
-        </div>
-        {/* Price */}
-        <p className='text-2xl font-semibold text-blue-dark'>${price}</p>
-      </div>
-    </div>
-  )
-}
-
-const RelatedProductCard = () => {
-  return (
-    <div className='shadow-around-light w-[18rem] h-[30rem] flex flex-col gap-2 
-    leading-none font-outfit font-medium text items-center text-blue-darker'>
-      <img className='h-3/4 w-full object-cover' src={chair1} alt='img-chair'/>
-      <div className='flex flex-row mt-2 text-yellow-500 text-md gap-4'>
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
-        </div>
-      <p className='text-xl  leading-none'>Wooden Chair</p>
-      <p className='text-2xl font-semibold'>$1500</p>
-    </div>
-  )
-}
-
+import RatingBar from './components/RatingBar'
+import Review from './components/Review'
+import ProductCard from './components/ProductCard'
+import RelatedProductCard from './components/RelatedProductCard'
 
 const ProductDetail = () => {
 

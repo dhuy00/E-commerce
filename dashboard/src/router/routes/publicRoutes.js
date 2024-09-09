@@ -1,6 +1,6 @@
 import { lazy } from "react";
-const OrderReview = lazy(() => import("../../views/pages/OrderReview"));
-const ProductDetail = lazy(() => import("./../../views/pages/ProductDetail"));
+const OrderReview = lazy(() => import("../../views/pages/order-review/OrderReview"));
+const ProductDetail = lazy(() => import("../../views/pages/product-detail/ProductDetail"));
 const LandingPage = lazy(() => import("../../views/pages/landing-page/LandingPage"));
 const Login = lazy(() => import("../../views/auth/Login"));
 const Register = lazy(() => import("../../views/auth/Register"));
