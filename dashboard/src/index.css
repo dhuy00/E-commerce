@@ -26,3 +26,25 @@
   background-color: currentColor; 
 }
 
+.hover-item {
+  position: relative;
+  padding-left: 20px; /* space for the icon */
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  /* transition: opacity 0.3s; */
+  font-size: 12px; /* Adjust the size of the triangle icon */
+  color: #8741E2; /* Set the color of the triangle */
+  transform: rotate(90deg);
+}
+
+.hover-item:hover .icon {
+  opacity: 1;
+}
+
+
