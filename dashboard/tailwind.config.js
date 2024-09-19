@@ -38,7 +38,8 @@ module.exports = {
       'mulish': "Mulish",
       'manrope': "Manrope",
       'mplus': ['"M PLUS Rounded 1c"', 'sans-serif'],
-      'roboto': "Roboto"
+      'roboto': "Roboto",
+      'patua-one': "Patua One"
     },
   },
 

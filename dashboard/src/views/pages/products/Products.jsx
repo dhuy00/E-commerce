@@ -23,8 +23,8 @@ const Rating = ({ ratingScore }) => {
 
 const ProductCard = ({ }) => {
   return (
-    <div className='w-64 border-2 border-gray-300 rounded-lg'>
-      <img src={chair1} className='object-cover w-64 h-60' alt='img-product' />
+    <div className='w-64 border-2 border-gray-300 rounded-lg cursor-pointer transition-transform hover:-translate-y-2'>
+      <img src={chair1} className='object-cover w-64 h-60 rounded-lg' alt='img-product' />
       <div className='px-4 py-4 flex flex-row justify-between items-center'>
         <div>
           {/* Product name */}
@@ -162,6 +162,7 @@ const Products = () => {
           </div>
           {/* Product List */}
           <div className='grid grid-cols-4 gap-4'>
+            <ProductCard />
             <ProductCard />
             <ProductCard />
             <ProductCard />

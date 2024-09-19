@@ -1,4 +1,7 @@
 import { lazy } from "react";
+const AboutUs = lazy(() => import("../../views/pages/about-us/AboutUs"));
+const Blog = lazy(() => import("../../views/pages/blogs/Blog"));
+const Blogs = lazy(() => import("../../views/pages/blogs/Blogs"));
 const Products = lazy(() => import("../../views/pages/products/Products"));
 const CustomerOrderDetail = lazy(() => import("../../views/pages/customer-orders/CustomerOrderDetail"));
 const CustomerOrders = lazy(() => import("../../views/pages/customer-orders/CustomerOrders"));
@@ -57,6 +60,18 @@ const publicRoutes = [
   {
     path: '/products',
     element: <Products/>
+  },
+  {
+    path: '/blogs',
+    element: <Blogs/>
+  },
+  {
+    path: '/blogs/:id',
+    element: <Blog/>
+  },
+  {
+    path: '/about',
+    element: <AboutUs/>
   },
 
 ]
