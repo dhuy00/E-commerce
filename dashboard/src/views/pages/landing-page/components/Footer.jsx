@@ -3,9 +3,10 @@ import { FaTwitterSquare } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaSquareInstagram } from "react-icons/fa6";
 import { FaFacebookSquare } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
-  const listItemStyle = 'hover:text-pink-main cursor-pointer transition-all' 
+  const listItemStyle = 'hover:text-pink-main cursor-pointer transition-all'
   return (
     <div className='bg-[#EEEFFB] w-full h-80 flex flex-col justify-between pt-10 pb-4'>
       <div className=' flex flex-row justify-between 
@@ -25,10 +26,18 @@ const Footer = () => {
               Categories
             </p>
             <ul className='flex flex-col gap-2'>
-              <li className={listItemStyle}>Laptop & Computer</li>
-              <li className={listItemStyle}>Camera and Photography</li>
-              <li className={listItemStyle}>Smartphones % Tablets</li>
-              <li className={listItemStyle}>Video Games & Consoles</li>
+              <Link to='/products'>
+                <li className={listItemStyle}>Laptop & Computer</li>
+              </Link>
+              <Link to='/products'>
+                <li className={listItemStyle}>Camera and Photography</li>
+              </Link>
+              <Link to='/products'>
+                <li className={listItemStyle}>Smartphones % Tablets</li>
+              </Link>
+              <Link to='/products'>
+                <li className={listItemStyle}>Video Games & Consoles</li>
+              </Link>
             </ul>
           </div>
           {/* Contact Info */}

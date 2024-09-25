@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MdEmail } from "react-icons/md";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaSquareTwitter } from "react-icons/fa6";
@@ -7,10 +7,14 @@ import { FaFacebookSquare } from "react-icons/fa";
 import vietnamese from './../../../../assets/vietnam.png'
 import { MdExpandMore } from "react-icons/md";
 import { FaUserCircle } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
+
+  const [optionShow, setOptionShow] = useState(false)
+
   return (
-    <div className='fixed z-10 top-0 w-screen text-[0.75rem] font-manrope justify-between px-20 text-white gap-4 flex flex-row bg-violet-main py-1 items-center'>
+    <div className='fixed z-20 top-0 w-screen text-[0.75rem] font-manrope justify-between px-20 text-white gap-4 flex flex-row bg-violet-main py-1 items-center'>
       {/* Mail and Phone*/}
       <div className='flex flex-row items-center gap-2'>
         <div className='flex flex-row font-medium items-center gap-1'>
@@ -41,11 +45,28 @@ const Header = () => {
         </div>
         <span className='w-[1px] h-4 bg-white'>
         </span>
-        <div className='flex flex-row gap-1 items-center'>
+        <div className='flex flex-row gap-1 items-center cursor-pointer'
+          onClick={() => setOptionShow(!optionShow)}>
           <FaUserCircle className='text-[15px]' />
           <span className='text-[0.8rem]'>dhuy0</span>
           <MdExpandMore className='text-xl' />
         </div>
+      </div>
+
+      {/* Option */}
+      <div className={`absolute z-20 bg-gray-50 text-black  border-gray-300
+      top-[29px] right-[5%] w-36 rounded-md ${optionShow ? '' : 'hidden'}`}>
+        <ul className='flex flex-col font-inter font-medium'>
+          <Link to='/profile/2'>
+            <li className='cursor-pointer hover:bg-gray-300 px-4 py-2 transition-colors'>Profile</li>
+          </Link>
+          <Link to='/shopping-cart/2'>
+            <li className='cursor-pointer hover:bg-gray-300 px-4 py-2 transition-colors'>Shopping Cart</li>
+          </Link>
+          <Link className='/'>
+            <li className='cursor-pointer hover:bg-gray-300 px-4 py-2 transition-colors'>Logout</li>
+          </Link>
+        </ul>
       </div>
 
     </div>

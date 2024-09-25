@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
+import LandingPage from './pages/landing-page/LandingPage';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const Home = () => {
 
   return (
     <div>
-      This is Home page
+      <LandingPage/>
     </div>
   )
 }

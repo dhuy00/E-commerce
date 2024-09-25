@@ -94,7 +94,7 @@ const AboutUs = () => {
         </span>
       </div>
       {/* What we offer? */}
-      <div className='flex flex-col gap-4 justify-center items-center my-8'>
+      <div className='flex flex-col gap-4 justify-center items-center mt-8 mb-16'>
         <h1 className='font-outfit text-2xl font-medium'>
           What we offer?
         </h1>
@@ -105,7 +105,7 @@ const AboutUs = () => {
           <Card />
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   )
 }

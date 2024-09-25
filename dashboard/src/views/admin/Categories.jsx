@@ -6,6 +6,10 @@ import { BiEditAlt } from "react-icons/bi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
 import { FaRegImage } from "react-icons/fa6";
+import { useDispatch, useSelector } from 'react-redux';
+import { BeatLoader } from 'react-spinners'
+import { loaderStyle } from '../../utils/utils';
+import { category_add } from '../../store/Reducers/categoryReducer';
 
 
 const CategoryCard = ({ group, categoryName, textColor, bgColor, bgImage }) => {
@@ -27,20 +31,44 @@ const CategoryCard = ({ group, categoryName, textColor, bgColor, bgImage }) => {
 
 const Categories = () => {
 
-  const [textColor, setTextColor] = useState("#A7A3FF");
-  const [bgColor, setBgColor] = useState("#EBD937");
-  const [cateName, setCateName] = useState("");
-  const [groupName, setGroupName] = useState("");
-  const [previewImage, setPreviewImage] = useState(null);
+  const dispatch = useDispatch();
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      // Create a URL for the selected image file
-      const imageUrl = URL.createObjectURL(file);
-      setPreviewImage(imageUrl);
+  const { loader, errorMessage, successMessage } = useSelector(state => state.category);
+
+  const [formData, setFormData] = useState({
+    textColor: "#A7A3FF",
+    bgColor: "#EBD937",
+    cateName: "",
+    groupName: "",
+    previewImage: null,
+  })
+
+  const handleFormChange = (e) => {
+    console.log("HANDLE FORM CHANGE", formData);
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+
+  const handleImageChange = (e) => {
+    const files = e.target.files;
+    const length = files.length;
+    if (length > 0) {
+      const imageUrl = URL.createObjectURL(files[0]);
+      console.log("Test Image", imageUrl);
+      setFormData({
+        ...formData,
+        previewImage: imageUrl,
+      })
     }
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(category_add(formData));
+  }
 
 
   return (
@@ -117,7 +145,6 @@ const Categories = () => {
           textColor="#0A73A1"
           bgColor="#D4EDF8"
           bgImage={sneaker} />
-
       </div>
       {/* Add a new Category */}
       <div className='w-full h-[30rem] rounded-[10px] gap-4 flex flex-col'>
@@ -133,8 +160,9 @@ const Categories = () => {
                   Category name
                 </label>
                 <input
-                  onChange={(e) => {setGroupName(e.target.value)}}
+                  onChange={(e) => { handleFormChange(e) }}
                   className='h-9 text-blue-medium border-2 border-blue-medium outline-none px-2 rounded-md'
+                  name='cateName'
                   type='text' />
               </div>
               {/* Group Name */}
@@ -143,8 +171,9 @@ const Categories = () => {
                   Group
                 </label>
                 <input
-                  onChange={(e) => {setCateName(e.target.value.toUpperCase())}}
+                  onChange={(e) => { handleFormChange(e) }}
                   className='h-9 text-blue-medium border-2 border-blue-medium outline-none px-2 rounded-md'
+                  name="groupName"
                   type='text' />
               </div>
               {/* Text Color */}
@@ -154,10 +183,11 @@ const Categories = () => {
                 </label>
                 <div className='flex flex-row items-center gap-4 border-2 rounded-md w-fit px-2'>
                   <input
-                    onChange={(e) => { setTextColor(e.target.value) }}
-                    className='h-8 w-7 appearance-none bg-transparent p-0' value={textColor}
-                    type='color' />
-                  <span className='font-inter font-semibold text-[#606060]'>{textColor}</span>
+                    onChange={(e) => { handleFormChange(e) }}
+                    className='h-8 w-7 appearance-none bg-transparent p-0' value={formData.textColor}
+                    type='color'
+                    name='textColor' />
+                  <span className='font-inter font-semibold text-[#606060]'>{formData.textColor}</span>
                 </div>
               </div>
               {/* Background Color */}
@@ -167,36 +197,54 @@ const Categories = () => {
                 </label>
                 <div className='flex flex-row items-center gap-4 border-2 rounded-md w-fit px-2'>
                   <input
-                    onChange={(e) => { setBgColor(e.target.value) }}
-                    className='h-8 w-7 appearance-none bg-transparent p-0' value={bgColor}
-                    type='color' />
-                  <span className='font-inter font-semibold text-[#606060]'>{bgColor}</span>
+                    onChange={(e) => { handleFormChange(e) }}
+                    className='h-8 w-7 appearance-none bg-transparent p-0' value={formData.bgColor}
+                    type='color'
+                    name='bgColor' />
+                  <span className='font-inter font-semibold text-[#606060]'>{formData.bgColor}</span>
                 </div>
               </div>
             </div>
             {/* Add Image */}
-            <div className='w-[45%] h-full'>
+            <div className='w-[45%] h-full relative'>
               <label htmlFor="image" className=' cursor-pointer h-full border-2 border-dashed border-[#1E6EE5] flex justify-center items-center flex-col'>
                 <FaRegImage style={{ fontSize: "2.5rem", color: "#606060" }} />
                 <span className='font-outfit font-medium text-lg text-[#606060]'>Select Image</span>
               </label>
-              <input type='file' className='hidden' name='image' id='image' value={previewImage}/>
+              <input
+                type='file'
+                className='hidden'
+                name='previewImage'
+                id='image'
+                onChange={(e) => handleImageChange(e)}
+              />
+              <span className='bg-black w-8 h-8 top-[-12px] right-[-10px] opacity-80 
+                flex justify-center items-center text-white rounded-full absolute cursor-pointer'>
+                <span>
+                  X
+                </span>
+              </span>
             </div>
           </div>
           {/* Preview Category Card */}
-          <div className='bg-white leading-none h-full w-1/3 rounded-[20px] px-8 py-6' style={{ backgroundColor: bgColor }}>
-            <h1 className='text-3xl' style={{color: textColor}}>{groupName}</h1>
-            <h1 className='text-[#7B8488] mb-5 font-extrabold text-[2.5rem]'>{cateName}</h1>
-            <img className='w-full h-[16.5rem] object-cover' src={previewImage} alt='figure-img'/>
+          <div className='bg-white leading-none h-full w-1/3 rounded-[20px] px-8 py-6' style={{ backgroundColor: formData.bgColor }}>
+            <h1 className='text-3xl' style={{ color: formData.textColor }}>{formData.groupName}</h1>
+            <h1 className='text-[#7B8488] mb-5 font-extrabold text-[2.5rem]'>{formData.cateName.toUpperCase()}</h1>
+            <img className='w-full h-[16.5rem] object-cover' src={formData.previewImage} alt='figure-img' />
           </div>
         </div>
         <div className='flex justify-end h-[8%]'>
-          <button className='border-2 bg-white rounded-md text-blue-medium font-semibold border-blue-medium w-fit px-8'>
-            Confirm
+          <button
+            disabled={loader ? true : false}
+            className='border-2 bg-white transition-all rounded-md hover:bg-blue-200
+           text-blue-medium font-semibold border-blue-medium w-fit px-8'>
+            {loader 
+              ? <BeatLoader color="#FFFFFF" size="10px" cssOverride={loaderStyle} />
+              : "Confirm"
+            }
           </button>
         </div>
       </div>
-
     </div>
   )
 }

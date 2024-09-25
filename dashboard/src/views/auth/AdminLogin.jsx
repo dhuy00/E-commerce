@@ -47,6 +47,16 @@ const AdminLogin = () => {
     dispatch(admin_login(loginInfo));
     // console.log(loginInfo);
   }
+  
+
+  const handleLoginSellerClick = (e) => {
+    e.preventDefault();
+    setTimeout(() => {
+      navigate('/login')
+    }, 100)
+  }
+
+
 
   useEffect(() => {
     if (errorMessage) {
@@ -66,7 +76,7 @@ const AdminLogin = () => {
   return (
     <div className='flex justify-center items-center h-screen bg-cover'
       style={{ backgroundImage: `url(${adminBg})` }}>
-      <form onSubmit={handleSubmit} className='backdrop-blur-lg mt-24 shadow-xl 
+      <form className='backdrop-blur-lg mt-24 shadow-xl 
       rounded-[8px] h-4/6 w-[430px] top-1/3 flex flex-col gap-4 font-poppins px-6 pt-16'>
         <h1 className='font-medium text-3xl'>
           Welcome back!
@@ -89,12 +99,19 @@ const AdminLogin = () => {
           Forgot Password?
         </p>
         <button
+        onClick={handleSubmit}
           disabled={loader ? true : false}
           className='tracking-widest bg-violet-dark h-14 rounded-[8px] text-white 
         font-semibold drop-shadow-dark'>
           {loader
             ? <BeatLoader color="#FFFFFF" size="10px" cssOverride={loaderStyle} />
             : 'Login'}
+        </button>
+        <button
+          className='tracking-widest border-[3px] border-violet-dark h-14 rounded-[8px] text-violet-dark
+        font-semibold drop-shadow-dark hover:bg-violet-300 transition-colors'
+        onClick={(e) => handleLoginSellerClick(e)}>
+          Not an admin? Login here
         </button>
       </form>
     </div>

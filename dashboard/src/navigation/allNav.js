@@ -80,4 +80,28 @@ export const allNav = [
     role: 'seller',
     path: '/seller/dashboard/profile'
   },
+  {
+    id: 10,
+    title: 'Home',
+    role: 'customer',
+    path: '/'
+  },
+  {
+    id: 10,
+    title: 'Products',
+    role: 'customer',
+    path: '/products'
+  },
+  {
+    id: 10,
+    title: 'Blogs',
+    role: 'customer',
+    path: '/blogs'
+  },
+  {
+    id: 10,
+    title: 'About Us',
+    role: 'customer',
+    path: '/about'
+  },
 ]

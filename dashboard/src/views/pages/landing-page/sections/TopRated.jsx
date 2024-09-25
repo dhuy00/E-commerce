@@ -1,31 +1,34 @@
 import React from 'react'
 import phone from './../../../../assets/categories/phone.jpg'
 import user from './../../../../assets/avt_user.png'
+import { Link } from 'react-router-dom'
 
 const ProductCard = () => {
   return (
-    <div className='flex flex-col gap-4'>
-      {/* Product Info */}
-      <div className='w-64 hover:-translate-y-2 transition-all cursor-pointer h-[25rem] gap-3 flex flex-col px-4 py-4 border-2 border-gray-200 rounded-md shadow-md'>
-        {/* Image */}
-        <img className='rounded-md h-72 object-cover' src={phone} alt='phone-img' />
-        {/* Description */}
-        <div className='flex flex-col gap-1 font-outfit justify-center items-center
+    <Link to='/product-detail/2'>
+      <div className='flex flex-col gap-4'>
+        {/* Product Info */}
+        <div className='w-64 hover:-translate-y-2 transition-all cursor-pointer h-[25rem] gap-3 flex flex-col px-4 py-4 border-2 border-gray-200 rounded-md shadow-md'>
+          {/* Image */}
+          <img className='rounded-md h-72 object-cover' src={phone} alt='phone-img' />
+          {/* Description */}
+          <div className='flex flex-col gap-1 font-outfit justify-center items-center
        text-blue-darker'>
-          <p className='font-medium text-lg'>iPhone 15 Promax</p>
-          <p className='text-3xl font-semibold'>$1500</p>
+            <p className='font-medium text-lg'>iPhone 15 Promax</p>
+            <p className='text-3xl font-semibold'>$1500</p>
+          </div>
         </div>
-      </div>
-      {/* Comment */}
-      <div className='flex flex-row gap-4 w-64 bg-[#F8F8F8] px-2 py-2 justify-center 
+        {/* Comment */}
+        <div className='flex flex-row gap-4 w-64 bg-[#F8F8F8] px-2 py-2 justify-center 
       items-center shadow-lg rounded-lg'>
-        <img className='w-16 h-10  object-cover rounded-full' src={user} alt='img-user'/>
-        <div className='flex flex-col text-sm font-outfit'>
-          <p className='font-semibold'>Ashley Daniel</p>
-          <p className='text-[10px] font-medium text-gray-400 leading-normal'>"Saved me tons of time - never going back to grocery shopping!"</p>
+          <img className='w-16 h-10  object-cover rounded-full' src={user} alt='img-user' />
+          <div className='flex flex-col text-sm font-outfit'>
+            <p className='font-semibold'>Ashley Daniel</p>
+            <p className='text-[10px] font-medium text-gray-400 leading-normal'>"Saved me tons of time - never going back to grocery shopping!"</p>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 

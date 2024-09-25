@@ -1,4 +1,5 @@
 import { lazy } from "react";
+const ShoppingCart = lazy(() => import("../../views/pages/shopping-cart/ShoppingCart"));
 const AboutUs = lazy(() => import("../../views/pages/about-us/AboutUs"));
 const Blog = lazy(() => import("../../views/pages/blogs/Blog"));
 const Blogs = lazy(() => import("../../views/pages/blogs/Blogs"));
@@ -42,7 +43,7 @@ const publicRoutes = [
     element: <LandingPage/>
   },
   {
-    path: '/product-detail',
+    path: '/product-detail/:id',
     element: <ProductDetail/>
   },
   {
@@ -72,6 +73,10 @@ const publicRoutes = [
   {
     path: '/about',
     element: <AboutUs/>
+  },
+  {
+    path: '/shopping-cart/:id',
+    element: <ShoppingCart/>
   },
 
 ]

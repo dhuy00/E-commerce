@@ -167,13 +167,13 @@ const AddProduct = () => {
                 </span>
               </label>
               {/* Delete Image */}
-              <span 
-                onClick={() => handleDeleteImage("img-1")} 
+              <span
+                onClick={() => handleDeleteImage("img-1")}
                 className={`bg-black cursor-pointer ${images.find(image => image.id === 'img-1') ? "" : "hidden"} opacity-80 absolute top-[-12px] right-[-10px] flex justify-center items-center text-white self-center w-8 h-8 rounded-full`}>
-                  <span>
-                    X
-                  </span>
+                <span>
+                  X
                 </span>
+              </span>
               <input disabled={images.find(image => image.id === 'img-1') ? 'true' : ''} type='file' onChange={(e) => handleImage(e)} className='hidden' name='image' id='img-1' />
             </div>
           </div>
@@ -201,9 +201,9 @@ const AddProduct = () => {
                   </span>
                 </label>
                 {/* Delete Image */}
-                <span 
-                onClick={() => handleDeleteImage("img-2")} 
-                className={`bg-black cursor-pointer ${images.find(image => image.id === 'img-2') ? "" : "hidden"} 
+                <span
+                  onClick={() => handleDeleteImage("img-2")}
+                  className={`bg-black cursor-pointer ${images.find(image => image.id === 'img-2') ? "" : "hidden"} 
                 opacity-80 absolute top-[-10px] right-[-5px] flex justify-center items-center 
                 text-white self-center w-6 h-6 rounded-full`}>
                   <span>
@@ -226,9 +226,9 @@ const AddProduct = () => {
                   </span>
                 </label>
                 {/* Delete Image */}
-                <span 
-                onClick={() => handleDeleteImage("img-3")} 
-                className={`bg-black cursor-pointer ${images.find(image => image.id === 'img-3') ? "" : "hidden"} 
+                <span
+                  onClick={() => handleDeleteImage("img-3")}
+                  className={`bg-black cursor-pointer ${images.find(image => image.id === 'img-3') ? "" : "hidden"} 
                 opacity-80 absolute top-[-10px] right-[-5px] flex justify-center items-center 
                 text-white self-center w-6 h-6 rounded-full`}>
                   <span>
@@ -251,9 +251,9 @@ const AddProduct = () => {
                   </span>
                 </label>
                 {/* Delete Image */}
-                <span 
-                onClick={() => handleDeleteImage("img-4")} 
-                className={`bg-black cursor-pointer ${images.find(image => image.id === 'img-4') ? "" : "hidden"} 
+                <span
+                  onClick={() => handleDeleteImage("img-4")}
+                  className={`bg-black cursor-pointer ${images.find(image => image.id === 'img-4') ? "" : "hidden"} 
                 opacity-80 absolute top-[-10px] right-[-5px] flex justify-center items-center 
                 text-white self-center w-6 h-6 rounded-full`}>
                   <span>

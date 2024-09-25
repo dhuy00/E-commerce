@@ -8,6 +8,7 @@ import Header from '../landing-page/components/Header'
 import { MdOutlineFilterAltOff } from "react-icons/md";
 import { IoMdSearch } from "react-icons/io";
 import chair1 from './../../../assets/chair/1.jpg'
+import { useEffect } from 'react'
 
 const Rating = ({ ratingScore }) => {
   return (
@@ -49,7 +50,12 @@ const ProductCard = ({ }) => {
 
 
 const Products = () => {
+
   const currentPage = 2;
+
+  useEffect(() => {
+    window.scrollTo(0, 0); 
+  }, []);
 
   return (
     <div>

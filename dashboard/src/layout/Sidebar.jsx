@@ -6,8 +6,8 @@ import { getNav } from '../navigation';
 import { Link, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 
-const Sidebar = ({showSidebar, setShowSidebar}) => {
-  const {pathname} = useLocation();
+const Sidebar = ({ showSidebar, setShowSidebar }) => {
+  const { pathname } = useLocation();
   const [allNav, setAllNav] = useState([]);
 
   const role = useSelector(state => state.auth.role)
@@ -29,8 +29,8 @@ const Sidebar = ({showSidebar, setShowSidebar}) => {
           </span>
           <span className='text-[#263377]'>ShopEase</span>
         </div>
-        <div className={`text-[#263377] text-xl ${!showSidebar ? 'ml-1' : ''} font-bold cursor-pointer`} onClick={() => {setShowSidebar(!showSidebar)}}>
-        <FaListUl />
+        <div className={`text-[#263377] text-xl ${!showSidebar ? 'ml-1' : ''} font-bold cursor-pointer`} onClick={() => { setShowSidebar(!showSidebar) }}>
+          <FaListUl />
         </div>
       </div>
       <ul className='flex flex-col gap-4'>
@@ -45,10 +45,12 @@ const Sidebar = ({showSidebar, setShowSidebar}) => {
           )
         }
       </ul>
-      <div className='absolute bottom-0 left-0 bg-[#f2f4f6] w-full h-14 justify-between flex flex-row items-center gap-4 font-semibold px-6 hover:cursor-pointer hover:bg-gray-300 duration-[120ms] transition-all'>
-        <span className={`text-[#09244B] ${!showSidebar ? 'hidden' : ''}`}>Duc Huy</span>
-        <span className=''><ImExit /></span>
-      </div>
+      <Link to={`${role === "admin" ? "/admin/login" : "/login"}`}>
+        <div className='absolute bottom-0 left-0 bg-[#f2f4f6] w-full h-14 justify-between flex flex-row items-center gap-4 font-semibold px-6 hover:cursor-pointer hover:bg-gray-300 duration-[120ms] transition-all'>
+          <span className={`text-[#09244B] ${!showSidebar ? 'hidden' : ''}`}>Duc Huy</span>
+          <span className=''><ImExit /></span>
+        </div>
+      </Link>
     </div>
   )
 }

@@ -7,39 +7,68 @@ import table from './../../../../assets/categories/table.jpg'
 import pillow from './../../../../assets/categories/pillow.jpg'
 import { MdOutlineNavigateNext } from "react-icons/md";
 import { IoIosArrowBack } from "react-icons/io";
-
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const ProcductCard = ({ name, price, rating, image }) => {
   return (
-    <div className='hover:-translate-y-2 transition-all px-6 py-6 rounded-md shadow-lg flex flex-col gap-2 justify-center items-center'>
-      {/* Image */}
-      <img className='object-cover w-48 h-56 rounded-md' src={image} alt='img-products' />
-      {/*Rating*/}
-      <div className='text-yellow-500 flex flex-row gap-2'>
-        <FaStar />
-        <FaStar />
-        <FaStar />
-        <FaStar />
-        <CiStar />
+    <Link to='/product-detail/2'>
+      <div className='hover:-translate-y-2 transition-all px-6 cursor-pointer py-6 rounded-md shadow-lg flex flex-col gap-2 justify-center items-center'>
+        {/* Image */}
+        <img className='object-cover w-48 h-56 rounded-md' src={image} alt='img-products' />
+        {/*Rating*/}
+        <div className='text-yellow-500 flex flex-row gap-2'>
+          <FaStar />
+          <FaStar />
+          <FaStar />
+          <FaStar />
+          <CiStar />
+        </div>
+        {/* Name */}
+        <h3 className='text-pink-main font-roboto font-medium'>{name}</h3>
+        {/* Price */}
+        <p className='font-outfit text-blue-darker font-semibold text-xl'>{price}</p>
+        <div className='flex flex-col gap-2'>
+          <button className='bg-[#6548DC] px-12 py-2 text-sm text-white font-manrope font-bold rounded-md'>
+            Add to cart
+          </button>
+          <button className='bg-[#08D15F] px-12 py-2 text-sm text-white font-manrope font-bold rounded-md'>
+            View detail
+          </button>
+        </div>
       </div>
-      {/* Name */}
-      <h3 className='text-pink-main font-roboto font-medium'>{name}</h3>
-      {/* Price */}
-      <p className='font-outfit text-blue-darker font-semibold text-xl'>{price}</p>
-      <div className='flex flex-col gap-2'>
-        <button className='bg-[#6548DC] px-12 py-2 text-sm text-white font-manrope font-bold rounded-md'>
-          Add to cart
-        </button>
-        <button className='bg-[#08D15F] px-12 py-2 text-sm text-white font-manrope font-bold rounded-md'>
-          View detail
-        </button>
-      </div>
-    </div>
+    </Link>
   )
 }
 
 
 const FeatureProducts = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [showIndex, setShowIndex] = useState([]);
+  const itemsPerPage = 4;
+
+  const nextPage = () => {
+    if (currentIndex + itemsPerPage < products.length) {
+      setShowIndex(currentIndex);
+      setCurrentIndex(currentIndex + 1);
+    }
+  }
+
+  const prevPage = () => {
+    if (currentIndex - 1 >= 0) {
+      setShowIndex(currentIndex);
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+
+  const products = [
+    { name: "Nike Air Max 270", price: "$231", rating: "4.5", image: shoes },
+    { name: "Ikea Ektorp Sofa", price: "$205", rating: "4", image: sofa },
+    { name: "Conference Room Table", price: "$212", rating: "4.5", image: table },
+    { name: "TEMPUR-Cloud Pillow", price: "$50", rating: "5", image: pillow },
+    { name: "TEMPUR-Cloud Pillow", price: "$50", rating: "5", image: pillow },
+  ];
+
   return (
     <div className='relative py-4'>
       {/* Title */}
@@ -49,30 +78,32 @@ const FeatureProducts = () => {
         </span>
       </div>
       {/* Product List */}
-      <div className='flex flex-row gap-8 justify-center items-center mt-8'>
-        <ProcductCard name="Nike Air Max 270" price="$231" rating="4.5" image={shoes} />
-        <ProcductCard name="Ikea Ektorp Sofa" price="$205" rating="4" image={sofa} />
-        <ProcductCard name="Conference Room Table" price="$212" rating="4.5" image={table} />
-        <ProcductCard name="TEMPUR-Cloud Pillow" price="$50" rating="5" image={pillow} />
+      <div className='flex transition-all flex-row gap-8 justify-center items-center mt-8'>
+        {products.slice(currentIndex, currentIndex + itemsPerPage).map((product, index) => (
+          <ProcductCard
+            key={index} // Make sure to use a unique key for each item
+            name={product.name}
+            price={product.price}
+            rating={product.rating}
+            image={product.image}
+          />
+        ))}
       </div>
       <div>
-        <button className='absolute top-1/2 right-8 bg-[#6548DC] text-white w-6 flex justify-center text-3xl h-10 items-center'>
+        <button
+          className='absolute top-1/2 right-8 bg-[#6548DC] text-white w-6 flex justify-center text-3xl h-10 items-center'
+          onClick={nextPage}
+          disabled={currentIndex + itemsPerPage >= products.length} // Disable if at the end
+        >
           <MdOutlineNavigateNext />
         </button>
-        <button className='absolute top-1/2 left-8 bg-[#6548DC] text-white w-6 flex justify-center text-3xl h-10 items-center'>
+        <button
+          className='absolute top-1/2 left-8 bg-[#6548DC] text-white w-6 flex justify-center text-3xl h-10 items-center'
+          onClick={prevPage}
+          disabled={currentIndex === 0} // Disable if at the beginning
+        >
           <IoIosArrowBack />
         </button>
-      </div>
-      <div className='absolute mt-8 left-[45%]'>
-        {
-          [1, 2, 3, 4].map((index) => (
-            <span
-              key={index}
-              className={`absolute transform cursor-pointer -translate-x-1/2 w-6 rounded-md h-[3px] bg-pink-main ${index === 1 ? "" : "opacity-45"}`}
-              style={{ left: `${index * 30}px` }}  // Adjust top base`d on index
-            ></span>
-          ))
-        }
       </div>
 
     </div>

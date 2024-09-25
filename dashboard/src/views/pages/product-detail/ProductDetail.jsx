@@ -1,7 +1,6 @@
 import React from 'react'
 import Header from '../landing-page/components/Header'
 import Nav from '../landing-page/components/Nav'
-import box from './../../../assets/box.png'
 import chair1 from './../../../assets/chair/1.jpg'
 import chair2 from './../../../assets/chair/2.jpg'
 import chair3 from './../../../assets/chair/3.jpg'
@@ -19,22 +18,24 @@ import RatingBar from './components/RatingBar'
 import Review from './components/Review'
 import ProductCard from './components/ProductCard'
 import RelatedProductCard from './components/RelatedProductCard'
+import { useEffect } from 'react'
+import PageName from './components/PageName'
 
 const ProductDetail = () => {
 
   const imageStyle = 'w-36 h-36 object-cover';
   const currentPage = 2;
 
+  useEffect(() => {
+    window.scrollTo(0, 0); 
+  }, []);
+
   return (
     <div>
       <Header />
       <Nav />
       {/* Title */}
-      <div className='mt-20 w-full bg-violet-light py-8 justify-center flex flex-col items-center tracking-wider relative'>
-        <h1 className='text-[1.85rem] font-mplus font-bold'>Product Detail</h1>
-        <p className='font-outfit  text-pink-main text-[12px] font-medium'>Home -&gt; Category -&gt; Product Name</p>
-        <img className='absolute right-[32%] top-0 w-40' src={box} alt='img-box' />
-      </div>
+      <PageName name="Product Detail"/>
       {/* Product Info */}
       <div className='px-16 mt-16 flex flex-row gap-12'>
         {/* Images */}
