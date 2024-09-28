@@ -67,7 +67,8 @@ const Categories = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(category_add(formData));
+    // dispatch(category_add(formData));
+    console.log(formData);
   }
 
 
@@ -236,8 +237,8 @@ const Categories = () => {
         <div className='flex justify-end h-[8%]'>
           <button
             disabled={loader ? true : false}
-            className='border-2 bg-white transition-all rounded-md hover:bg-blue-200
-           text-blue-medium font-semibold border-blue-medium w-fit px-8'>
+            className={`border-2 ${loader ? "bg-blue-200" : "bg-white"} transition-all rounded-md hover:bg-blue-200
+           text-blue-medium font-semibold border-blue-medium w-fit px-8`}>
             {loader 
               ? <BeatLoader color="#FFFFFF" size="10px" cssOverride={loaderStyle} />
               : "Confirm"

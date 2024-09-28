@@ -20,7 +20,7 @@ export const categoryReducer = createSlice({
   initialState: {
     successMessage: '',
     errorMessage: '',
-    loader: true,
+    loader: false,
     categoryInfo: [],
   },
   reducers: {
