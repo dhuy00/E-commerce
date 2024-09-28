@@ -236,6 +236,7 @@ const Categories = () => {
         </div>
         <div className='flex justify-end h-[8%]'>
           <button
+            onClick={handleSubmit}
             disabled={loader ? true : false}
             className={`border-2 ${loader ? "bg-blue-200" : "bg-white"} transition-all rounded-md hover:bg-blue-200
            text-blue-medium font-semibold border-blue-medium w-fit px-8`}>
